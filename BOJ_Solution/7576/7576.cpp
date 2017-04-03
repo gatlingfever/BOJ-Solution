@@ -15,17 +15,19 @@ int main()
 
 	int nRipenTomato = 0;
 	int nEmptySpace = 0;
-	int nTotalSpace = nWidth * nHeight;
 	
 	cin >> nWidth >> nHeight;
+	int nTotalSpace = nWidth * nHeight;
+
 	for (int i = 0; i < nHeight; ++i)
 		for (int j = 0; j < nWidth; ++j)
-			cin >> cTomatoBox[i][j];
+			scanf_s("%hhd", &cTomatoBox[i][j]);
 
 	queue<pair<int, int>> CheckingQueue;
 	do
 	{
 		++nDate;
+		nEmptySpace = 0;
 		for (int i = 0; i < nHeight; ++i)
 			for (int j = 0; j < nWidth; ++j)
 			{
@@ -38,8 +40,23 @@ int main()
 					++nEmptySpace;
 			}
 
+		if (nEmptySpace == nTotalSpace)
+		{
+			nDate = 1;
+			break;
+		}
+		if (!nRipenTomato)
+		{
+			nDate = 0;
+			break;
+		}
 		if (nEmptySpace + nRipenTomato == nTotalSpace)
 			break;
+		if (!CheckingQueue.size())
+		{
+			nDate = 0;
+			break;
+		}
 
 
 		while (CheckingQueue.size())
@@ -53,21 +70,12 @@ int main()
 				if (nXpos + nXadd[i] >= 0 && nXpos + nXadd[i] < nWidth &&
 					nYpos + nYadd[i] >= 0 && nYpos + nYadd[i] < nHeight &&
 					!cTomatoBox[nYpos + nYadd[i]][nXpos + nXadd[i]])
-				{
-					CheckingQueue.push({ nYpos + nYadd[i], nXpos + nXadd[i] });
 					cTomatoBox[nYpos + nYadd[i]][nXpos + nXadd[i]] = nDate + 1;
-				}
 			}
 		}
 	} while (true);
 
-	for (int i = 0; i < nHeight; ++i)
-	{
-		for (int j = 0; j < nWidth; ++j)
-			cout << cTomatoBox[i][j] << " ";
-		cout << endl;
-	}
-
+	cout << nDate - 1;
 
 	system("pause");
 	return 0;
