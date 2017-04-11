@@ -1,5 +1,72 @@
 // Question : https://www.acmicpc.net/problem/7576
 
+/*
+Test Case 1; One Ripen Tomato
+6 4
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 1
+A : 8;
+
+Test Case 2; Several Ripen Tomato
+6 4
+0 1 0 0 0 0
+0 0 0 0 0 0
+0 0 1 0 0 0
+0 0 0 0 0 1
+A : 3;
+
+Test Case 3; All Ripen Tomato
+6 4
+1 1 1 1 1 1
+1 1 1 1 1 1
+1 1 1 1 1 1
+1 1 1 1 1 1
+A : 0;
+
+Test Case 4; All Empty Space
+6 4
+-1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1
+A : 0;
+
+Test Case 5; Long Lonely Journey
+6 4
+ 0  0  0  0  0  0
+ 0 -1 -1 -1 -1  0
+ 0 -1 -1  0 -1  0
+ 0  0  0  0 -1  1
+A : 15;
+
+Test Case 6; Isolated I
+6 4
+0 -1 0 0 0 0
+-1 0 0 0 0 0
+0  0 0 0 0 0
+0  0 0 0 0 1
+A : -1;
+
+Test Case 7; Isolated II
+6 4
+1 -1 0 0 0 0
+-1 0 0 0 0 0
+0  0 0 0 0 0
+0  0 0 0 0 0
+A : -1;
+
+Test Case 8; Too Early
+6 4
+0  0  0  0  0  0
+0 -1 -1 -1 -1  0
+0 -1 -1  0 -1  0
+0  0  0  0 -1  0
+A : -1;
+*/
+
+
 #include <iostream>
 #include <queue>
 using namespace std;
